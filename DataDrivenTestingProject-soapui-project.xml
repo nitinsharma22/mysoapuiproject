@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="db7d4026-1653-4d82-a437-5e1ffe0e1601" activeEnvironment="Default environment" name="DataDrivenTestingProject" lastOpened="2016-12-14T12:01:17.641-06:00" resourceRoot="" soapui-version="6.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d717aebb-e86c-4a8c-98a4-4a56e47fd173" wsaVersion="NONE" name="countrySoap" type="wsdl" bindingName="{http://www.webserviceX.NET}countrySoap" soapVersion="1_1" anonymous="optional" definition="http://www.webservicex.net/country.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.webservicex.net/country.asmx?WSDL"><con:part><con:url>http://www.webservicex.net/country.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.webserviceX.NET" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<con:soapui-project id="db7d4026-1653-4d82-a437-5e1ffe0e1601" activeEnvironment="Default environment" name="DataDrivenTestingProject" lastOpened="2016-12-14T13:21:21.482-06:00" resourceRoot="" soapui-version="6.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d717aebb-e86c-4a8c-98a4-4a56e47fd173" wsaVersion="NONE" name="countrySoap" type="wsdl" bindingName="{http://www.webserviceX.NET}countrySoap" soapVersion="1_1" anonymous="optional" definition="http://www.webservicex.net/country.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.webservicex.net/country.asmx?WSDL"><con:part><con:url>http://www.webservicex.net/country.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.webserviceX.NET" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://www.webserviceX.NET">
       <s:element name="GetCountryByCountryCode">
@@ -3092,7 +3092,41 @@ for(int i=0;i&lt;testSuite.getPropertyCount();i++)
     <CurrencyCode>ZWD</CurrencyCode>
   </Table>
 </NewDataSet>]]></con:value></con:property><con:property><con:name>CountryName</con:name><con:value>Argentina</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="b2963275-51b7-4858-9c9a-289933eabe9b"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ExtractCurrencyResponse</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GetCurrenciesSoapRequest</con:sourceStep><con:sourcePath>declare namespace ns1='http://www.webserviceX.NET';
-//ns1:GetCurrenciesResponse[1]/ns1:GetCurrenciesResult[1]</con:sourcePath><con:targetType>Temp1</con:targetType><con:targetStep>Properties</con:targetStep><con:targetPath/><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="63893a33-bd55-48a8-9db9-e0cead1fcd31"><con:settings/><con:config><script>log.info("Hello World")
+//ns1:GetCurrenciesResponse[1]/ns1:GetCurrenciesResult[1]</con:sourcePath><con:targetType>Temp1</con:targetType><con:targetStep>Properties</con:targetStep><con:targetPath/><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script-Slurper" id="75be28a5-bad1-48b4-9600-530bbe92676a"><con:settings/><con:config><script>def countriesXml = context.expand('${Properties#Temp1}')
+def wsdl=new XmlSlurper().parseText(countriesXml)
+def count = 0;
+  
+wsdl.Table.each { Table ->
+     count++
+     log.info("&lt;"+Table.Name+">.........&lt;"+Table.CountryCode+">.........&lt;"+Table.Currency+">.........&lt;"+Table.CurrencyCode+">")
+	testRunner.testCase.getTestStepByName("Properties").setPropertyValue("CountryName",Table.Name.toString())
+	Thread.currentThread().sleep(1000)
+  	testRunner.runTestStepByName("GetCurrencyByCountrySoapRequest" )
+  	// TODO: Add Assertion logic to compare the response with first service call data
+  	if(count == 10)
+  		return
+}
+
+testRunner.cancel("I am Done !")
+/*
+pers.NewDataSet.Table.each{Table-> 
+Table.children().each{ tag->
+log.info("${tag.name()}: ${tag.text()}"
+}
+*/
+/*
+       Table.Name.findAll{ name->
+       log.info(name)
+       }
+*/
+
+
+</script></con:config></con:testStep><con:testStep type="request" name="GetCurrencyByCountrySoapRequest" id="f8f4283b-6763-40ca-8068-53eb6673d4f8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCurrencyByCountry</con:operation><con:request name="GetCurrencyByCountrySoapRequest" id="4eaf8f52-2192-4664-ab2d-4537fc65c408"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCurrencyByCountry><web:CountryName>${Properties#CountryName}</web:CountryName></web:GetCurrencyByCountry>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8fc053cc-2bf1-48cb-9487-e9365ec4d075"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="63893a33-bd55-48a8-9db9-e0cead1fcd31"><con:settings/><con:config><script>log.info("Hello World")
 log.info(testRunner.testCase.testSuite.project.name)
 log.info(testRunner.testCase.testSuite.name)
 log.info(testRunner.testCase.name)
@@ -3143,36 +3177,7 @@ for( item in holder.getDomNodes("//Table" )){
 testRunner.cancel("I am Done !")
     //log.info "Item : [$item]" 
 
-//NumOfCountries</script></con:config></con:testStep><con:testStep type="request" name="GetCurrencyByCountrySoapRequest" id="f8f4283b-6763-40ca-8068-53eb6673d4f8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCurrencyByCountry</con:operation><con:request name="GetCurrencyByCountrySoapRequest" id="4eaf8f52-2192-4664-ab2d-4537fc65c408"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <web:GetCurrencyByCountry><web:CountryName>${Properties#CountryName}</web:CountryName></web:GetCurrencyByCountry>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8fc053cc-2bf1-48cb-9487-e9365ec4d075"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script-Slurper" id="75be28a5-bad1-48b4-9600-530bbe92676a"><con:settings/><con:config><script>def countriesXml = context.expand('${Properties#Temp1}')
-def wsdl=new XmlSlurper().parseText(countriesXml)
-//log.info(wsdl.children())
-
-
-        wsdl.Table.each { Table ->
-      //log.info(Table)
-        log.info("&lt;"+Table.Name+">.........&lt;"+Table.CountryCode+">.........&lt;"+Table.Currency+">.........&lt;"+Table.CurrencyCode+">")
- //       Table.Name.findAll{ name->
-  //      log.info(name)
-  //      }
-        
-           // log.info(" Country.name = "+Table.Name)	
-          //  log.info("    part.name = " + message.part.@'name')
-          //   log.info("    part.element = " + message.part.@'element')
-        }
-/*
-pers.NewDataSet.Table.each{Table-> 
-Table.children().each{ tag->
-log.info("${tag.name()}: ${tag.text()}"
-}
-*/
-
-
-</script></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="031ca4f8-ed87-4541-986f-4930519af033" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 3" searchProperties="true" timeout="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="groovy" name="Groovy Script" id="12ffa233-f641-4086-803a-3441a7e95622"><con:settings/><con:config><script>        def wsdl = new XmlSlurper().parse("http://www.webservicex.com/globalweather.asmx?WSDL")
+//NumOfCountries</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>75be28a5-bad1-48b4-9600-530bbe92676a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>63893a33-bd55-48a8-9db9-e0cead1fcd31</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="031ca4f8-ed87-4541-986f-4930519af033" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 3" searchProperties="true" timeout="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="groovy" name="Groovy Script" id="12ffa233-f641-4086-803a-3441a7e95622"><con:settings/><con:config><script>        def wsdl = new XmlSlurper().parse("http://www.webservicex.com/globalweather.asmx?WSDL")
         
         wsdl.message.each { message ->
             log.info(" message.name = "+message.@'name')	
