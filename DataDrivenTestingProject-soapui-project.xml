@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="db7d4026-1653-4d82-a437-5e1ffe0e1601" activeEnvironment="Default environment" name="DataDrivenTestingProject" lastOpened="2016-12-14T13:21:21.482-06:00" resourceRoot="" soapui-version="6.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d717aebb-e86c-4a8c-98a4-4a56e47fd173" wsaVersion="NONE" name="countrySoap" type="wsdl" bindingName="{http://www.webserviceX.NET}countrySoap" soapVersion="1_1" anonymous="optional" definition="http://www.webservicex.net/country.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.webservicex.net/country.asmx?WSDL"><con:part><con:url>http://www.webservicex.net/country.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.webserviceX.NET" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<con:soapui-project id="db7d4026-1653-4d82-a437-5e1ffe0e1601" activeEnvironment="Default environment" name="DataDrivenTestingProject" lastOpened="2016-12-14T16:12:28.928-06:00" resourceRoot="" soapui-version="6.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="DataDrivenExample1"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value="TestCase Report"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="TestCase 4"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="d717aebb-e86c-4a8c-98a4-4a56e47fd173" wsaVersion="NONE" name="countrySoap" type="wsdl" bindingName="{http://www.webserviceX.NET}countrySoap" soapVersion="1_1" anonymous="optional" definition="http://www.webservicex.net/country.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.webservicex.net/country.asmx?WSDL"><con:part><con:url>http://www.webservicex.net/country.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.webserviceX.NET" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://www.webserviceX.NET">
       <s:element name="GetCountryByCountryCode">
@@ -3091,7 +3124,7 @@ for(int i=0;i&lt;testSuite.getPropertyCount();i++)
     <Currency>Dollar</Currency>
     <CurrencyCode>ZWD</CurrencyCode>
   </Table>
-</NewDataSet>]]></con:value></con:property><con:property><con:name>CountryName</con:name><con:value>Argentina</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="b2963275-51b7-4858-9c9a-289933eabe9b"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ExtractCurrencyResponse</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GetCurrenciesSoapRequest</con:sourceStep><con:sourcePath>declare namespace ns1='http://www.webserviceX.NET';
+</NewDataSet>]]></con:value></con:property><con:property><con:name>CountryName</con:name><con:value>Zimbabwe</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="b2963275-51b7-4858-9c9a-289933eabe9b"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ExtractCurrencyResponse</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GetCurrenciesSoapRequest</con:sourceStep><con:sourcePath>declare namespace ns1='http://www.webserviceX.NET';
 //ns1:GetCurrenciesResponse[1]/ns1:GetCurrenciesResult[1]</con:sourcePath><con:targetType>Temp1</con:targetType><con:targetStep>Properties</con:targetStep><con:targetPath/><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script-Slurper" id="75be28a5-bad1-48b4-9600-530bbe92676a"><con:settings/><con:config><script>def countriesXml = context.expand('${Properties#Temp1}')
 def wsdl=new XmlSlurper().parseText(countriesXml)
 def count = 0;
@@ -3177,7 +3210,7 @@ for( item in holder.getDomNodes("//Table" )){
 testRunner.cancel("I am Done !")
     //log.info "Item : [$item]" 
 
-//NumOfCountries</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>75be28a5-bad1-48b4-9600-530bbe92676a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>63893a33-bd55-48a8-9db9-e0cead1fcd31</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="031ca4f8-ed87-4541-986f-4930519af033" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 3" searchProperties="true" timeout="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="groovy" name="Groovy Script" id="12ffa233-f641-4086-803a-3441a7e95622"><con:settings/><con:config><script>        def wsdl = new XmlSlurper().parse("http://www.webservicex.com/globalweather.asmx?WSDL")
+//NumOfCountries</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>75be28a5-bad1-48b4-9600-530bbe92676a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>63893a33-bd55-48a8-9db9-e0cead1fcd31</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="031ca4f8-ed87-4541-986f-4930519af033" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 3" searchProperties="true" timeout="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="groovy" name="WSDLParserScript" id="12ffa233-f641-4086-803a-3441a7e95622"><con:settings/><con:config><script>        def wsdl = new XmlSlurper().parse("http://www.webservicex.com/globalweather.asmx?WSDL")
         
         wsdl.message.each { message ->
             log.info(" message.name = "+message.@'name')	
@@ -3189,4 +3222,112 @@ testRunner.cancel("I am Done !")
             log.info(" message.name = "+message.@'name')	
             //println "    part.name = " + message.part.@'name'
             //println "    part.element = " + message.part.@'element'
-        }*/</script></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:savedRecentRuns>1</con:savedRecentRuns><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:reportTemplates/><con:xmlTemplates/><con:xmlTemplates/><con:parameters/><con:parameters/></con:reporting><con:reporting/><con:authRepository/><con:tags/></con:soapui-project>
+        }*/</script></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="22486846-0fda-4cd9-ab6c-332b4adb0ef9" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 4" searchProperties="true" timeout="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="groovy" name="DriverScript" id="9f2860a3-dab2-40a5-8c99-d99c57eb918a"><con:settings/><con:config><script>import java.io.*
+import jxl.*
+import jxl.write.*
+
+def f = new File("c:\\nitin\\work\\soapui\\maven\\DataDrivenProject\\SmokeTests.xls")
+def wk = Workbook.getWorkbook(f)
+def ws = wk.getSheet("Sheet1")
+def rows = ws.getRows()
+def cols = ws.getColumns()
+log.info("Rows = "+rows)
+log.info("Cols = "+cols)
+/*
+for( def r=1;r&lt;rows;r++){
+	for (def col=1;col&lt;4;col++){
+		log.info(ws.getCell(col,r))
+	}
+}
+*/
+for( def i=1;i&lt;rows;i++){
+	Cell statusCell = ws.getCell(2,i)
+	log.info("Cell  "+statusCell.getContents())
+	if(statusCell.getContents().equalsIgnoreCase("Y")){
+		Cell testDataCell = ws.getCell(3,i)
+		testRunner.testCase.getTestStepByName("Properties").setPropertyValue("testData",testDataCell.getContents())
+		Cell stepNameCell = ws.getCell(1,i)
+		log.info("Executing "+stepNameCell.getContents())
+		testRunner.runTestStepByName(stepNameCell.getContents())
+	}
+}
+</script></con:config></con:testStep><con:testStep type="properties" name="Properties" id="d2769bba-a5dc-4123-af5b-acb88bce240e"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>testData</con:name><con:value>Lira</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="GetCountries" id="446f8520-7ab8-4444-9d86-4b571c357a36" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCountries</con:operation><con:request name="GetCountries" id="db31e947-b810-462e-9184-602a6fa61592"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCountries/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5f3cb3d5-6989-42df-8e37-396e2444b19a"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetCurrencies" id="14cd9287-eaa1-4d0d-bc6d-ab3763e1a788" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCurrencies</con:operation><con:request name="GetCurrencies" id="7ca564aa-d040-4f12-8e04-afb7dc4cca03"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCurrencies/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="954359eb-1b5e-41ee-9467-e2efd3b5bcf5"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetCurrencyCode" id="2211fc90-e858-4ae5-be46-8f9884d9dcfa" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCurrencyCode</con:operation><con:request name="GetCurrencyCode" id="a891eb5e-62bb-40a6-b056-316e3b64d7a1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetCurrencyCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="82169ba3-1bef-47a3-b67e-dc4dede2a1ad"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetCountryByCountryCode" id="d1bfebb4-1462-44de-a8e8-38407e23a0b1" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCountryByCountryCode</con:operation><con:request name="GetCountryByCountryCode" id="735d69c5-3d17-436f-ab02-80cbbf463083"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCountryByCountryCode><web:CountryCode>${Properties#testData}</web:CountryCode></web:GetCountryByCountryCode>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="f72bcdbf-14db-45d3-9566-88af0a77c165"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetCountryByCurrencyCode" id="35207c60-580f-4671-97d7-e34b093ee562" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCountryByCurrencyCode</con:operation><con:request name="GetCountryByCurrencyCode" id="06decdde-22ae-4e78-ac61-f6684bec7a8a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCountryByCurrencyCode><web:CurrencyCode>${Properties#testData}</web:CurrencyCode></web:GetCountryByCurrencyCode>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="de40b3b8-1afa-409d-971f-82960481db7e"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>d2769bba-a5dc-4123-af5b-acb88bce240e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>9f2860a3-dab2-40a5-8c99-d99c57eb918a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>446f8520-7ab8-4444-9d86-4b571c357a36</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>14cd9287-eaa1-4d0d-bc6d-ab3763e1a788</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>2211fc90-e858-4ae5-be46-8f9884d9dcfa</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d1bfebb4-1462-44de-a8e8-38407e23a0b1</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>35207c60-580f-4671-97d7-e34b093ee562</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="df7e615a-6f92-425c-bc99-b60f65358425" name="SmokeTestSuite"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:testCase id="71a3c2e6-ce75-48c1-b391-fc76aaa65bda" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="DriverTestCase" searchProperties="true" timeout="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="groovy" name="DriverScript" id="71cb1cb1-98e1-4c6d-b7f4-e245867f549c"><con:settings/><con:config><script>import java.io.*
+import jxl.*
+import jxl.write.*
+
+def f = new File("c:\\nitin\\work\\soapui\\maven\\DataDrivenProject\\SmokeTests.xls")
+def wk = Workbook.getWorkbook(f)
+def ws = wk.getSheet("Sheet1")
+def rows = ws.getRows()
+def cols = ws.getColumns()
+log.info("Rows = "+rows)
+log.info("Cols = "+cols)
+/*
+for( def r=1;r&lt;rows;r++){
+	for (def col=1;col&lt;4;col++){
+		log.info(ws.getCell(col,r))
+	}
+}
+*/
+for( def i=1;i&lt;rows;i++){
+	Cell statusCell = ws.getCell(2,i)
+	log.info("Cell  "+statusCell.getContents())
+	if(statusCell.getContents().equalsIgnoreCase("Y")){
+		Cell testDataCell = ws.getCell(3,i)
+		testRunner.testCase.getTestStepByName("Properties").setPropertyValue("testData",testDataCell.getContents())
+		Cell stepNameCell = ws.getCell(1,i)
+		log.info("Executing "+stepNameCell.getContents())
+		testRunner.runTestStepByName(stepNameCell.getContents())
+	}
+}
+</script></con:config></con:testStep><con:testStep type="properties" name="Properties" id="71cd5198-5264-4761-bd22-41dccfbc4b75"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>testData</con:name><con:value>Lira</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="GetCountries" id="d8c9fe5c-19f6-40ae-b862-60cd0b46f3fb" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCountries</con:operation><con:request name="GetCountries" id="db31e947-b810-462e-9184-602a6fa61592"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCountries/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5f3cb3d5-6989-42df-8e37-396e2444b19a"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetCurrencies" id="6a26cbf2-054b-4f05-b6e7-88c02a7193d6" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCurrencies</con:operation><con:request name="GetCurrencies" id="7ca564aa-d040-4f12-8e04-afb7dc4cca03"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCurrencies/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="954359eb-1b5e-41ee-9467-e2efd3b5bcf5"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetCurrencyCode" id="dbf0b982-1c6c-4c17-8435-ccc5a3594e9a" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCurrencyCode</con:operation><con:request name="GetCurrencyCode" id="a891eb5e-62bb-40a6-b056-316e3b64d7a1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCurrencyCode/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="82169ba3-1bef-47a3-b67e-dc4dede2a1ad"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetCountryByCountryCode" id="5217e0e9-f5f1-4077-9527-23d5926f9ab3" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCountryByCountryCode</con:operation><con:request name="GetCountryByCountryCode" id="735d69c5-3d17-436f-ab02-80cbbf463083"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCountryByCountryCode><web:CountryCode>${Properties#testData}</web:CountryCode></web:GetCountryByCountryCode>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="f72bcdbf-14db-45d3-9566-88af0a77c165"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetCountryByCurrencyCode" id="0d5a2f93-b275-46d0-a52a-d4667e7b1db8" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>countrySoap</con:interface><con:operation>GetCountryByCurrencyCode</con:operation><con:request name="GetCountryByCurrencyCode" id="06decdde-22ae-4e78-ac61-f6684bec7a8a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/country.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCountryByCurrencyCode><web:CurrencyCode>${Properties#testData}</web:CurrencyCode></web:GetCountryByCurrencyCode>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="de40b3b8-1afa-409d-971f-82960481db7e"/><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/><con:tagId>7ec47462-52e1-4818-a096-6017ca279f7d</con:tagId></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:savedRecentRuns>1</con:savedRecentRuns><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:reportTemplates/><con:xmlTemplates/><con:xmlTemplates/><con:parameters/><con:parameters/></con:reporting><con:reporting/><con:authRepository/><con:tags><con:tag><con:id>7ec47462-52e1-4818-a096-6017ca279f7d</con:id><con:name>smoke</con:name></con:tag><con:tag><con:id>504fa60a-7ad8-4478-8b2e-ede7e3f42d52</con:id><con:name>regression</con:name></con:tag></con:tags></con:soapui-project>
